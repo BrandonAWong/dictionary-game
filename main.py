@@ -1,6 +1,6 @@
-import requests
 import random
 from random_word import RandomWords
+from pydictionary import Dictionary
 
 class Word:
     def __init__(self):
@@ -9,49 +9,43 @@ class Word:
 
     def setWord(self, word):
         self.validateWord(word)
-        self.word = word
+        print(f'went through - {word}')
 
     def validateWord(self, word):
         try:
-            url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
-            info = requests.get(url).json()[0]
-            self.setDefinition(info)
-
+            definition = Dictionary(word, 1).meanings()[0]
+            self.setDefinition(definition)
+            self.word = word
         except:
-            print(word, "shit aint here")
             self.setWord(RandomWords().get_random_word())
 
+    def setDefinition(self, definition):
+        if definition.__contains__(':'):
+            index = definition.find(':')
+            definition = definition[0:index]
+        self.definition = definition
 
-    def setDefinition(self, json):
-        self.definition = json['meanings'][0]['definitions'][0]['definition']
-
-
-def getListWordDef():
+def getWordChoices():
     wordChoices = []
     for _ in range(4):
         word = Word()
         word.setWord(RandomWords().get_random_word())
         wordChoices.append(word)
-
     return wordChoices
 
 if __name__ == '__main__':
-    words = getListWordDef()
+    words = getWordChoices()
     correctOption = random.choice(words)
     correctWord = correctOption.word
     print(f'If the definition of the word is:\n{correctOption.definition}\n')
-
     for index, word in enumerate(words):
         print(f'{index+1}) {word.word}')
-    
     answer = input('\nThen the word is: ')
     if answer == correctWord:
         print("🎉🥳🎉")
-
     else:
         print(f'😭 the answer was {correctWord}')
-
     words.remove(correctOption)
     print('\nThe rest of the words:')
     for index, word in enumerate(words):
-        print(f'{word.word} - {word.definition}')
+        print(f'{index}) {word.word} - {word.definition}')
