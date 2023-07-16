@@ -9,7 +9,6 @@ class Word:
 
     def setWord(self, word):
         self.validateWord(word)
-        print(f'went through - {word}')
 
     def validateWord(self, word):
         try:
@@ -48,4 +47,4 @@ if __name__ == '__main__':
     words.remove(correctOption)
     print('\nThe rest of the words:')
     for index, word in enumerate(words):
-        print(f'{index}) {word.word} - {word.definition}')
+        print(f'{index + 1}) {word.word} - {word.definition}')

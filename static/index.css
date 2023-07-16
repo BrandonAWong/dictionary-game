@@ -1,0 +1,57 @@
+* {
+  text-align: center;
+  background-color: #121213;
+  font-family: "Noto Serif";
+  color: #fff;
+  font-size: 24px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-bottom: 1px solid #3a3a3c;
+}
+
+.title {
+  font-style: italic;
+  font-size: 38px;
+}
+
+.card,
+.choice {
+  width: 710px;
+  background-color: #1e2732;
+  border: 1px solid #3a3a3c;
+}
+
+.card {
+  display: inline-block;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+#card-info {
+  background-color: #1e2732;
+  font-size: 24px;
+}
+
+.choice {
+  display: block;
+  margin: auto;
+  margin-top: 30px;
+  padding: 10px;
+  border-radius: 10px;
+  transition: opacity 0.2s;
+}
+
+.choice:hover{
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.choice:active{
+  opacity: 0.5;
+}

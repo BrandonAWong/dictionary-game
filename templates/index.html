@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
+    <title>Home</title>
+  </head>
+
+  <body>
+    <div class="header">
+      <h1 class="title">Daily Dictionary</h1>
+    </div>
+    
+    <div class="card">
+      <span><p id="card-info">Based on this definition: <br>filled with or characterized by a lively energy and excitement.</p></span>
+    </div>
+
+    <button class="choice">hi</button>
+    <button class="choice">hi</button>
+    <button class="choice">hi</button>
+    <button class="choice">hi</button>
+
+    <script src="{{ url_for('static', filename='index.js')}}"></script>
+  </body>
+
+</html>
