@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
-    <title>Home</title>
+    <title>Daily Dictionary</title>
   </head>
 
   <body>
@@ -17,15 +17,13 @@
     </div>
     
     <div class="card">
-      <span><p id="card-info">Based on this definition: <br>filled with or characterized by a lively energy and excitement.</p></span>
+      <p class="card-info">{{ definition }}</p>
     </div>
 
-    <button class="choice">hi</button>
-    <button class="choice">hi</button>
-    <button class="choice">hi</button>
-    <button class="choice">hi</button>
-
-    <script src="{{ url_for('static', filename='index.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='index.js')}}"></script>
+    <script type"text/javascript">
+      createChoices('{{ data|tojson  }}')
+    </script>
   </body>
 
 </html>
