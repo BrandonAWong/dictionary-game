@@ -4,6 +4,7 @@
 
   <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="../static/images/360.png">
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,16 +15,30 @@
   <body>
     <div class="header">
       <h1 class="title">Daily Dictionary</h1>
+      <img class="profile" src="../static/images/avatar.png">
     </div>
     
-    <div class="card">
-      <p class="card-info">{{ definition }}</p>
+    <div class="card  fade-in">
+      <p id="card-info">{{ definition }}</p>
+    </div>
+
+    <div>
+      <button class="choice slide-in"></button>
+      <button class="choice slide-in"></button>
+      <button class="choice slide-in"></button>
+      <button class="choice slide-in"></button>
+    </div>
+
+    <div id="win" class="slide-in" hidden="true">
+      <h2>Correct!</h2>
+      <button id="next">Next</button>
     </div>
 
     <script type="text/javascript" src="{{ url_for('static', filename='index.js')}}"></script>
     <script type"text/javascript">
       createChoices('{{ data|tojson  }}')
     </script>
+  
   </body>
 
 </html>
