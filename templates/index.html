@@ -13,13 +13,13 @@
   </head>
 
   <body>
-    <div class="header">
+    <div class="header slide-in">
       <h1 class="title">Daily Dictionary</h1>
       <img class="profile" src="../static/images/avatar.png">
     </div>
     
-    <div class="card  fade-in">
-      <p id="card-info">{{ definition }}</p>
+    <div class="card  slide-in">
+      <p id="card-info"></p>
     </div>
 
     <div>
@@ -31,17 +31,14 @@
 
     <div id="win" class="slide-in" hidden="true">
       <h2>Correct!</h2>
-      <a href="{{ url_for('views.home') }}">
-        <button class="next">Next</button>
-      </a>
-      
+      <button id="win-button">Next</button>
     </div>
 
-    <script type="text/javascript" src="{{ url_for('static', filename='index.js')}}"></script>
     <script type"text/javascript">
-      createChoices('{{ data|tojson  }}')
+      const data = '{{ data|tojson }}'
     </script>
-  
+    <script type="text/javascript" src="{{ url_for('static', filename='index.js')}}"></script>
+
   </body>
 
 </html>
