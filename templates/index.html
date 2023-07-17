@@ -31,7 +31,10 @@
 
     <div id="win" class="slide-in" hidden="true">
       <h2>Correct!</h2>
-      <button id="next">Next</button>
+      <a href="{{ url_for('views.home') }}">
+        <button class="next">Next</button>
+      </a>
+      
     </div>
 
     <script type="text/javascript" src="{{ url_for('static', filename='index.js')}}"></script>

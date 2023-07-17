@@ -18,10 +18,10 @@ function checkAnswer(evt)
     const button = evt.currentTarget
     button.disabled = true;
     let answerDef = document.getElementById("card-info")
-    answerDef = answerDef.innerHTML.replace("______", button.innerHTML)
+    answerDef = answerDef.innerHTML.replace(/______/g, button.innerHTML)
     const choiceDef = button.definition
-
-    if (choiceDef === answerDef)
+    
+    if (choiceDef == answerDef)
     {
         button.className = "choice correct";
         win()
@@ -40,12 +40,4 @@ function win()
         btn.disabled = true;
     }
     document.getElementById("win").hidden = false;
-
-    const nextButton = document.getElementById("next");
-    nextButton.addEventListener("click", next);
-}
-
-function next()
-{
-    location.reload();
 }
