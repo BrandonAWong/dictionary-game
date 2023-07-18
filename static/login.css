@@ -30,13 +30,22 @@ button {
   margin: 15px;
 
   border-radius: 10px;
-  border: none;
+  border: 1px solid #1e2732;
 
-  transition: opacity 0.5s;
+  transition: opacity 0.3s;
+}
+
+.minor-button {
+  font-size: 18px;
+  background-color: #1e2732;
+  
+  transition: opacity 0.3s;
+  transition: background-color 0.5s;
 }
 
 button:hover {
   opacity: 0.8;
+  background-color: #121213;
 }
 
 button:active {
