@@ -1,21 +1,18 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="../static/images/360.png">
+  {% block content %}
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css')}}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
     <title>Daily Dictionary</title>
   </head>
-
+  
   <body>
     <div class="header slide-in">
       <h1 class="title">Daily Dictionary</h1>
-      <img class="profile" src="../static/images/avatar.png">
+      <a href="{{ url_for('views.login')}}">
+        <img class="header-redirect" src="../static/images/avatar.png">
+      </a>
+      
     </div>
     
     <div class="card  slide-in">
@@ -33,6 +30,7 @@
       <h2>Correct!</h2>
       <button id="win-button">Next</button>
     </div>
+    
 
     <script type"text/javascript">
       const data = '{{ data|tojson }}'
@@ -42,3 +40,5 @@
   </body>
 
 </html>
+
+{% endblock %}

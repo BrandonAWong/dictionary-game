@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+  {% block content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css')}}">
+    <title>Login - Daily Dictionary</title>
+  </head>
+
+  <body>
+    <a href="{{ url_for('views.home') }}">
+      <img class="header-redirect" src="../static/images/home.png">
+    </a>
+    <div class="input-wrapper slide-in">
+      <input type="text" placeholder="Username">
+      <input type="text" placeholder="Password ">
+      <button id="login">Login</button>
+    </div>
+
+    <div id="liquid-effect"></div>
+    <script type="text/javascript" src="{{ url_for('static', filename='login.js')}}"></script>
+  </body>
+
+</html>
+
+{% endblock %}

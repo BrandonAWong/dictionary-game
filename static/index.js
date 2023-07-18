@@ -1,4 +1,5 @@
-const dictionary = JSON.parse(data)
+const dictionary = JSON.parse(data);
+
 
 function startGame()
 {   
@@ -8,20 +9,22 @@ function startGame()
     const choices = document.getElementsByClassName("choice");
     for (const btn of choices) 
     {
-        if (btn.className != "choice fade-in")
+        if (btn.className != "choice fade-in" && btn.className != "choice fade-in incorrect")
         {
             const randomInt = Math.floor(Math.random() * dictionary.length)
             var word = dictionary[randomInt].Word;
             var definition = dictionary[randomInt].Definition;
+            btn.className = "choice fade-in"
         }
         else
         {
             var word = btn.innerHTML
             var definition = btn.definition
+            btn.className = "choice fade-in"
         }
 
         btn.disabled = false;
-        btn.className = "choice fade-in"
+        
         btn.addEventListener("click", checkAnswer);
         btn.innerHTML = word;
         btn.definition = definition;
@@ -51,7 +54,7 @@ function checkAnswer(evt)
     }
     else
     {
-        button.className = "choice incorrect";
+        button.className = "choice fade-in incorrect";
     }
 }
 
