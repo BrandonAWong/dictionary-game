@@ -8,12 +8,13 @@
 
   <body>
     <a href="{{ url_for('views.home') }}">
-      <img class="header-redirect" src="../static/images/home.png">
+      <img class="header-redirect slide-in" src="../static/images/home.png">
     </a>
-    <div class="input-wrapper slide-in">
+    <div id="wrapper" class="input-wrapper slide-in" hidden="true">
       <input type="text" placeholder="Username">
       <input type="text" placeholder="Password ">
       <button id="login">Login</button>
+      <button id="sign-up" class="minor-button" onclick="showSignUp()">Sign Up</a>
     </div>
 
     <div id="liquid-effect"></div>
