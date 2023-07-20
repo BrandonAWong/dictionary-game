@@ -1,10 +1,14 @@
 .input-wrapper {
   display: flex;
   flex-direction: column;
-  
+
   position: absolute;
-  left: 40%;
-  top: 30%;
+  top: 45%;
+  left: 50%;
+
+  margin: -150px 0 0 -180px;
+  width: 360px;
+  height: 300px;
 
   border-radius: 10px;
   border: 1px #3a3a3c solid;
@@ -13,6 +17,7 @@
 
 input {
   display: inline-block;
+  width: 303px;
 
   margin: 15px;
   padding: 10px;
@@ -28,6 +33,7 @@ input {
 button {
   display: inline-block;
   margin: 15px;
+  width: 325px;
 
   border-radius: 10px;
   border: 1px solid #1e2732;
