@@ -7,20 +7,20 @@ function startGame()
 
     let options = [];
     const choices = document.getElementsByClassName("choice");
-    for (const btn of choices) 
+    for (const btn of choices)
     {
         if (btn.className != "choice fade-in" && btn.className != "choice fade-in incorrect")
         {
-            const randomInt = Math.floor(Math.random() * dictionary.length)
+            const randomInt = Math.floor(Math.random() * dictionary.length);
             var word = dictionary[randomInt].Word;
             var definition = dictionary[randomInt].Definition;
-            btn.className = "choice fade-in"
+            btn.className = "choice fade-in";
         }
         else
         {
-            var word = btn.innerHTML
-            var definition = btn.definition
-            btn.className = "choice fade-in"
+            var word = btn.innerHTML;
+            var definition = btn.definition;
+            btn.className = "choice fade-in";
         }
 
         btn.disabled = false;
@@ -28,29 +28,29 @@ function startGame()
         btn.addEventListener("click", checkAnswer);
         btn.innerHTML = word;
         btn.definition = definition;
-        options.push(btn)
+        options.push(btn);
     }
 
     const randomInt = Math.floor(Math.random() * options.length);
-    const ansWord = options[randomInt].innerHTML
-    const ansDef = options[randomInt].definition.replace(ansWord, "______")
-    const card = document.getElementById("card-info")
+    const ansWord = options[randomInt].innerHTML;
+    const ansDef = options[randomInt].definition.replace(/ansWord/gi, "______");
+    const card = document.getElementById("card-info");
     card.innerHTML = ansDef;
-    card.className = "fade-in"
+    card.className = "slide-in";
 }
 
 function checkAnswer(evt)
 {
-    const button = evt.currentTarget
+    const button = evt.currentTarget;
     button.disabled = true;
-    let answerDef = document.getElementById("card-info")
-    answerDef = answerDef.innerHTML.replace(/______/g, button.innerHTML)
-    const choiceDef = button.definition
+    let answerDef = document.getElementById("card-info");
+    answerDef = answerDef.innerHTML.replace(/______/g, button.innerHTML).toLowerCase();
+    const choiceDef = button.definition.toLowerCase();
 
     if (choiceDef == answerDef)
     {
         button.className = "choice correct";
-        win()
+        win();
     }
     else
     {
@@ -65,6 +65,8 @@ function win()
     {
         btn.disabled = true;
     }
+    const card = document.getElementById("card-info");
+    card.className = "";
     document.getElementById("win").hidden = false;
     document.getElementById("win-button").addEventListener("click", startGame)
 }
